@@ -1,8 +1,18 @@
-import square
+import click
+
+import just_count.square as square
 
 
-def main():
-    print(f"The square of 5 is {square.square(5)}")
+@click.command()
+@click.option(
+    "-n",
+    "--number",
+    default=5,
+    help="number to square.",
+    show_default=True,
+)
+def main(number):
+    print(f"The square of {number} is {square.square(number)}")
 
 
 if __name__ == "__main__":
